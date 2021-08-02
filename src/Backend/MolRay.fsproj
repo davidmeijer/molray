@@ -1,0 +1,17 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <WarnOn>3390;$(WarnOn)</WarnOn>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="MolRay.Types.fs" />
+    <Compile Include="MolRay.Tracer.fs" />
+    <Compile Include="MolRay.Objects.fs" />
+    <Compile Include="MolRay.Surfaces.fs" />
+    <Compile Include="MolRay.Render.fs" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Fable.Browser.WebGL" Version="1.0.0" />
+  </ItemGroup>
+</Project>

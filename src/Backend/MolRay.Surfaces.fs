@@ -1,0 +1,45 @@
+module MolRay.Surfaces
+
+open System
+open MolRay.Types
+
+// ===========================
+// Shiny surface
+// ===========================
+
+let Shiny =
+    {
+        new Surface with
+            member surface.Diffuse position = Color.White
+            
+            member surface.Specular position = Color.Grey
+            
+            member surface.Reflect position = 0.7
+            
+            member surface.Roughness = 255.0
+    }
+
+// ===========================
+// Checkerboard surface
+// ===========================
+
+let CheckerBoard =
+    {
+        new Surface with
+            member surface.Diffuse position =
+                if (int (Math.Floor position.Z + Math.Floor position.X)) % 2 <> 0 then
+                    Color.White
+                else
+                    Color.Black
+            
+            member surface.Specular position = Color.White
+            
+            member surface.Reflect position =
+                if (int (Math.Floor position.Z + Math.Floor position.X)) % 2 <> 0 then
+                    0.1
+                else
+                    0.7
+            
+            member surface.Roughness = 150.0
+                    
+    }

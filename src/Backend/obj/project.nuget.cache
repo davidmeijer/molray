@@ -1,0 +1,16 @@
+{
+  "version": 2,
+  "dgSpecHash": "JtaLO2c5EmFO7h8ZTHfkVLGjQpHEYsrRNd/ejdkZLYrp6Il/O67379aP39PRaEh6YrvmUQ8r7QIZmsKf4dP7ig==",
+  "success": true,
+  "projectFilePath": "/Users/davidmeijer/molray/src/Backend/MolRay.fsproj",
+  "expectedPackageFiles": [
+    "/Users/davidmeijer/.nuget/packages/fable.browser.blob/1.1.0/fable.browser.blob.1.1.0.nupkg.sha512",
+    "/Users/davidmeijer/.nuget/packages/fable.browser.dom/1.2.0/fable.browser.dom.1.2.0.nupkg.sha512",
+    "/Users/davidmeijer/.nuget/packages/fable.browser.event/1.0.0/fable.browser.event.1.0.0.nupkg.sha512",
+    "/Users/davidmeijer/.nuget/packages/fable.browser.webgl/1.0.0/fable.browser.webgl.1.0.0.nupkg.sha512",
+    "/Users/davidmeijer/.nuget/packages/fable.browser.webstorage/1.0.0/fable.browser.webstorage.1.0.0.nupkg.sha512",
+    "/Users/davidmeijer/.nuget/packages/fable.core/3.1.5/fable.core.3.1.5.nupkg.sha512",
+    "/Users/davidmeijer/.nuget/packages/fsharp.core/5.0.0/fsharp.core.5.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}
