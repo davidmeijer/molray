@@ -16,6 +16,7 @@
     <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
+    <PkgNCDK Condition=" '$(PkgNCDK)' == '' ">/Users/davidmeijer/.nuget/packages/ncdk/1.6.1</PkgNCDK>
     <PkgFSharp_Core Condition=" '$(PkgFSharp_Core)' == '' ">/Users/davidmeijer/.nuget/packages/fsharp.core/5.0.0</PkgFSharp_Core>
     <PkgFable_Browser_WebGL Condition=" '$(PkgFable_Browser_WebGL)' == '' ">/Users/davidmeijer/.nuget/packages/fable.browser.webgl/1.0.0</PkgFable_Browser_WebGL>
   </PropertyGroup>

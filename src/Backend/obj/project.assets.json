@@ -134,6 +134,50 @@
             "locale": "zh-Hant"
           }
         }
+      },
+      "MathNet.Numerics.Signed/4.15.0": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/MathNet.Numerics.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/MathNet.Numerics.dll": {}
+        }
+      },
+      "NCDK/1.6.1": {
+        "type": "package",
+        "dependencies": {
+          "MathNet.Numerics.Signed": "4.15.0"
+        },
+        "compile": {
+          "lib/netcoreapp3.1/NCDK.Math.dll": {},
+          "lib/netcoreapp3.1/NCDK.dll": {}
+        },
+        "runtime": {
+          "lib/netcoreapp3.1/NCDK.Math.dll": {},
+          "lib/netcoreapp3.1/NCDK.dll": {}
+        },
+        "build": {
+          "build/NCDK.targets": {}
+        },
+        "runtimeTargets": {
+          "runtimes/linux-x64/native/libinchi.so": {
+            "assetType": "native",
+            "rid": "linux-x64"
+          },
+          "runtimes/linux-x86/native/libinchi.so": {
+            "assetType": "native",
+            "rid": "linux-x86"
+          },
+          "runtimes/win-x64/native/libinchi.dll": {
+            "assetType": "native",
+            "rid": "win-x64"
+          },
+          "runtimes/win-x86/native/libinchi.dll": {
+            "assetType": "native",
+            "rid": "win-x86"
+          }
+        }
       }
     }
   },
@@ -242,12 +286,57 @@
         "lib/netstandard2.0/zh-Hans/FSharp.Core.resources.dll",
         "lib/netstandard2.0/zh-Hant/FSharp.Core.resources.dll"
       ]
+    },
+    "MathNet.Numerics.Signed/4.15.0": {
+      "sha512": "LFjukMRatkg9dgRM7U/gM4uKgaWAX7E0lt3fsVDTPdtBIVuh7uPlksDie290br1/tv1a4Ar/Bz9ywCPSL8PhHg==",
+      "type": "package",
+      "path": "mathnet.numerics.signed/4.15.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "icon.png",
+        "lib/net40/MathNet.Numerics.dll",
+        "lib/net40/MathNet.Numerics.xml",
+        "lib/net461/MathNet.Numerics.dll",
+        "lib/net461/MathNet.Numerics.xml",
+        "lib/netstandard1.3/MathNet.Numerics.dll",
+        "lib/netstandard1.3/MathNet.Numerics.xml",
+        "lib/netstandard2.0/MathNet.Numerics.dll",
+        "lib/netstandard2.0/MathNet.Numerics.xml",
+        "mathnet.numerics.signed.4.15.0.nupkg.sha512",
+        "mathnet.numerics.signed.nuspec"
+      ]
+    },
+    "NCDK/1.6.1": {
+      "sha512": "TFfeeQ65FDKh2Bx6EseBuLLouJR4ILdrmHX5Lu/K1sPWzAkzsKk/3L11qJvl/TWggBy4X4KkaGUrBpq5cRcglA==",
+      "type": "package",
+      "path": "ncdk/1.6.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "build/NCDK.targets",
+        "lib/netcoreapp3.1/NCDK.Math.dll",
+        "lib/netcoreapp3.1/NCDK.Math.xml",
+        "lib/netcoreapp3.1/NCDK.dll",
+        "lib/netcoreapp3.1/NCDK.xml",
+        "lib/netstandard2.0/NCDK.Math.dll",
+        "lib/netstandard2.0/NCDK.Math.xml",
+        "lib/netstandard2.0/NCDK.dll",
+        "lib/netstandard2.0/NCDK.xml",
+        "ncdk.1.6.1.nupkg.sha512",
+        "ncdk.nuspec",
+        "runtimes/linux-x64/native/libinchi.so",
+        "runtimes/linux-x86/native/libinchi.so",
+        "runtimes/win-x64/native/libinchi.dll",
+        "runtimes/win-x86/native/libinchi.dll"
+      ]
     }
   },
   "projectFileDependencyGroups": {
     "net5.0": [
       "FSharp.Core >= 5.0.0",
-      "Fable.Browser.WebGL >= 1.0.0"
+      "Fable.Browser.WebGL >= 1.0.0",
+      "NCDK >= 1.6.1"
     ]
   },
   "packageFolders": {
@@ -291,6 +380,11 @@
           "Fable.Browser.WebGL": {
             "target": "Package",
             "version": "[1.0.0, )",
+            "generatePathProperty": true
+          },
+          "NCDK": {
+            "target": "Package",
+            "version": "[1.6.1, )",
             "generatePathProperty": true
           }
         },

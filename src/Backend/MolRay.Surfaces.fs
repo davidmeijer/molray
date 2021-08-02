@@ -16,7 +16,23 @@ let Shiny =
             
             member surface.Reflect position = 0.7
             
-            member surface.Roughness = 255.0
+            member surface.Roughness = 250.0
+    }
+    
+// ===========================
+// Matt surface
+// ===========================
+
+let Matt (surfaceColor : Color) =
+    {
+        new Surface with
+            member surface.Diffuse position = surfaceColor
+            
+            member surface.Specular position = Color.Grey
+            
+            member surface.Reflect position = 0.0
+            
+            member surface.Roughness = 500.0
     }
 
 // ===========================

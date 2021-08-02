@@ -1,0 +1,10 @@
+/Users/davidmeijer/molray/src/Backend/bin/Debug/net5.0/MolRay.deps.json
+/Users/davidmeijer/molray/src/Backend/bin/Debug/net5.0/MolRay.dll
+/Users/davidmeijer/molray/src/Backend/bin/Debug/net5.0/MolRay.pdb
+/Users/davidmeijer/molray/src/Backend/bin/Debug/net5.0/MolRay.xml
+/Users/davidmeijer/molray/src/Backend/obj/Debug/net5.0/MolRay.fsproj.AssemblyReference.cache
+/Users/davidmeijer/molray/src/Backend/obj/Debug/net5.0/MolRay.AssemblyInfoInputs.cache
+/Users/davidmeijer/molray/src/Backend/obj/Debug/net5.0/MolRay.AssemblyInfo.fs
+/Users/davidmeijer/molray/src/Backend/obj/Debug/net5.0/MolRay.dll
+/Users/davidmeijer/molray/src/Backend/obj/Debug/net5.0/MolRay.xml
+/Users/davidmeijer/molray/src/Backend/obj/Debug/net5.0/MolRay.pdb

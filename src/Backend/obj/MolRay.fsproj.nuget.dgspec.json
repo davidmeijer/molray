@@ -43,6 +43,11 @@
               "target": "Package",
               "version": "[1.0.0, )",
               "generatePathProperty": true
+            },
+            "NCDK": {
+              "target": "Package",
+              "version": "[1.6.1, )",
+              "generatePathProperty": true
             }
           },
           "imports": [
