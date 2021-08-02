@@ -48,6 +48,21 @@
               "target": "Package",
               "version": "[1.6.1, )",
               "generatePathProperty": true
+            },
+            "ShellProgressBar": {
+              "target": "Package",
+              "version": "[5.1.0, )",
+              "generatePathProperty": true
+            },
+            "System.Drawing.Common": {
+              "target": "Package",
+              "version": "[5.0.2, )",
+              "generatePathProperty": true
+            },
+            "runtime.osx.10.10-x64.CoreCompat.System.Drawing": {
+              "target": "Package",
+              "version": "[5.8.64, )",
+              "generatePathProperty": true
             }
           },
           "imports": [

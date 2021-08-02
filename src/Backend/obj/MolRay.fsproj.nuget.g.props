@@ -16,6 +16,9 @@
     <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
+    <PkgSystem_Drawing_Common Condition=" '$(PkgSystem_Drawing_Common)' == '' ">/Users/davidmeijer/.nuget/packages/system.drawing.common/5.0.2</PkgSystem_Drawing_Common>
+    <PkgShellProgressBar Condition=" '$(PkgShellProgressBar)' == '' ">/Users/davidmeijer/.nuget/packages/shellprogressbar/5.1.0</PkgShellProgressBar>
+    <Pkgruntime_osx_10_10-x64_CoreCompat_System_Drawing Condition=" '$(Pkgruntime_osx_10_10-x64_CoreCompat_System_Drawing)' == '' ">/Users/davidmeijer/.nuget/packages/runtime.osx.10.10-x64.corecompat.system.drawing/5.8.64</Pkgruntime_osx_10_10-x64_CoreCompat_System_Drawing>
     <PkgNCDK Condition=" '$(PkgNCDK)' == '' ">/Users/davidmeijer/.nuget/packages/ncdk/1.6.1</PkgNCDK>
     <PkgFSharp_Core Condition=" '$(PkgFSharp_Core)' == '' ">/Users/davidmeijer/.nuget/packages/fsharp.core/5.0.0</PkgFSharp_Core>
     <PkgFable_Browser_WebGL Condition=" '$(PkgFable_Browser_WebGL)' == '' ">/Users/davidmeijer/.nuget/packages/fable.browser.webgl/1.0.0</PkgFable_Browser_WebGL>

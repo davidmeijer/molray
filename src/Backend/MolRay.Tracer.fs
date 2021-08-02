@@ -1,6 +1,7 @@
 module MolRay.Tracer
 
-open System 
+open System
+open ShellProgressBar
 open MolRay.Types
 
 // ===========================
@@ -160,23 +161,37 @@ let GetPoint (x : int) (y : int) (width : int) (height : int) (camera : Camera) 
         
     Vector.Normalize (camera.Forward + RecenterX x * camera.Right + RecenterY y * camera.Up)
     
-let Render scene (data : byte []) (x : int, y : int, width : int, height : int) =
+let Render (bitmap : Drawing.Bitmap) (scene : Scene) (x : int, y : int, width : int, height : int) =
+
+    let getProgressBar (maxTicks : int) =
+        let options =
+            ProgressBarOptions(
+                ForegroundColor = ConsoleColor.Yellow,
+                BackgroundColor = ConsoleColor.DarkGray,
+                ProgressCharacter = '-'
+            )
+        let progressBar = new ProgressBar(maxTicks, "Rendering image...", options)
+        progressBar
+        
+    let progressBar = getProgressBar height
+    use progressBar = progressBar
+    
     let clamp (value : float) =
-        Math.Floor (255.0 * Math.Min(value, 1.0)) |> byte
+        Math.Floor (255.0 * Math.Min(value, 1.0)) |> int
     
     for y = y to height - 1 do
-        let stride = y * width
-        
         for x = x to width - 1 do
-            let index = (x + stride) * 4
+            
             let direction = GetPoint x y width height scene.Camera
             let ray = {
                 Start = scene.Camera.Position
                 Direction = direction 
             }
             let color = TraceRay ray scene 0
+            let color = Drawing.Color.FromArgb(clamp color.R, clamp color.G, clamp color.B)
             
-            data.[index + 0] <- clamp color.R
-            data.[index + 1] <- clamp color.G
-            data.[index + 2] <- clamp color.B
-            data.[index + 3] <- 255uy
+            bitmap.SetPixel(x, y, color)
+            
+        progressBar.Tick()
+            
+    bitmap

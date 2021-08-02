@@ -1,21 +1,16 @@
 module MolRay.Render
 
-open Browser.Types
-open Browser
+open System.Drawing
 open MolRay.Chemistry
 open MolRay.Types
-open MolRay.Tracer
 open MolRay
 
 let renderScene (scene : Scene) (x : int, y : int, width : int, height : int) =
-    let canvas = document.getElementsByTagName("canvas").[0] :?> HTMLCanvasElement
-    let ctx = canvas.getContext_2d()
-    let img = ctx.createImageData(float width, float height)
+    let bitmap =
+        let bm = new Bitmap(width, height)
+        Tracer.Render bm scene (x, y, width, height)
     
-    Render scene img.data (x, y, width, height)
-    ctx.putImageData(img, float -x, float -y)
-    
-    ctx
+    bitmap.Save("./molecule.png")
     
 let drawAtom (atom : Atom) =
     Objects.Sphere
@@ -36,7 +31,7 @@ let drawMolecule (molecule : Molecule) =
         {
             X = 3.0
             Y = 2.0
-            Z = 4.0
+            Z = 30.0
         }
         
     let lookAt =
@@ -57,7 +52,5 @@ let drawMolecule (molecule : Molecule) =
             ]
             Camera = Camera(viewPoint, lookAt)
         }
-        
-    renderScene scene (0, 0, 512, 512) |> ignore // No output is currently shown
     
-    ()
+    renderScene scene (0, 0, 2048, 2048)
