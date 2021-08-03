@@ -170,7 +170,7 @@ let Render (bitmap : Drawing.Bitmap) (scene : Scene) (x : int, y : int, width : 
                 BackgroundColor = ConsoleColor.DarkGray,
                 ProgressCharacter = '-'
             )
-        let progressBar = new ProgressBar(maxTicks, "Rendering image...", options)
+        let progressBar = new ProgressBar(maxTicks, $"Rendering scene {scene.Name}...", options)
         progressBar
         
     let progressBar = getProgressBar height

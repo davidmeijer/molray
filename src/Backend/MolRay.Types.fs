@@ -78,6 +78,96 @@ type Vector =
             Z = vector_a.X * vector_b.Y - vector_a.Y * vector_b.X
         }
         
+    // Rotate vector
+    static member Transform (vector : Vector, axis : Axis, degree : float) =
+        let rotationalMatrix = axis.RotationalMatrix(degree)
+        
+        let X = Vector.Dot(rotationalMatrix.RowX, vector)
+        let Y = Vector.Dot(rotationalMatrix.RowY, vector)
+        let Z = Vector.Dot(rotationalMatrix.RowZ, vector)
+        
+        {
+            X = X
+            Y = Y
+            Z = Z
+        }
+        
+
+and Axis =
+    | X
+    | Y
+    | Z
+    
+    with
+    
+    member axis.RotationalMatrix (degree : float) =
+        match axis with
+        | X ->
+            {
+                RowX = {
+                    X = 1.0
+                    Y = 0.0
+                    Z = 0.0
+                }
+                RowY = {
+                    X = 0.0
+                    Y = Math.Cos(degree)
+                    Z = -Math.Sin(degree)
+                }
+                RowZ = {
+                    X = 0.0
+                    Y = Math.Sin(degree)
+                    Z = Math.Cos(degree)
+                }
+            }
+            
+        | Y ->
+            {
+                RowX = {
+                    X = Math.Cos(degree)
+                    Y = 0.0
+                    Z = Math.Sin(degree)
+                }
+                RowY = {
+                    X = 0.0
+                    Y = 1.0
+                    Z = 0.0
+                }
+                RowZ = {
+                    X = -Math.Sin(degree)
+                    Y = 0.0
+                    Z = Math.Cos(degree)
+                }
+            }
+            
+        | Z ->
+            {
+                RowX = {
+                    X = Math.Cos(degree)
+                    Y = -Math.Sin(degree)
+                    Z = 0.0
+                }
+                RowY = {
+                    X = Math.Sin(degree)
+                    Y = Math.Cos(degree)
+                    Z = 0.0
+                }
+                RowZ = {
+                    X = 0.0
+                    Y = 0.0
+                    Z = 1.0
+                }
+            }
+        
+and Matrix =
+    {
+        RowX : Vector
+        RowY : Vector
+        RowZ : Vector
+    }
+    
+    
+        
 // ===========================
 // Color
 // ===========================
@@ -239,6 +329,7 @@ type Light =
 
 type Scene =
     {
+        Name : string
         Objects : Object list
         Lights : Light list
         Camera : Camera

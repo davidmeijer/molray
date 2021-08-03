@@ -5,12 +5,15 @@ open MolRay.Chemistry
 open MolRay.Types
 open MolRay
 
-let renderScene (scene : Scene) (x : int, y : int, width : int, height : int) =
-    let bitmap =
-        let bm = new Bitmap(width, height)
-        Tracer.Render bm scene (x, y, width, height)
+let renderScene (scenes : Scene []) (dirPath : string) (x : int, y : int, width : int, height : int) =
     
-    bitmap.Save("./molecule.png")
+    for scene in scenes do
+    
+        let bitmap =
+            let bm = new Bitmap(width, height)
+            Tracer.Render bm scene (x, y, width, height)
+        
+        bitmap.Save($"{dirPath}{scene.Name}.png")
     
 let drawAtom (atom : Atom) =
     Objects.Sphere
@@ -21,11 +24,6 @@ let drawAtom (atom : Atom) =
         ) 
 
 let drawMolecule (molecule : Molecule) =
-    
-    let sceneObjects =
-        molecule.Atoms
-        |> Array.map (fun atom -> drawAtom atom)
-        |> Array.toList
         
     let viewPoint =
         {
@@ -40,17 +38,31 @@ let drawMolecule (molecule : Molecule) =
             Y = 0.5
             Z = 0.0
         }
-        
-    let scene =
-        {
-            Objects = sceneObjects
-            Lights = [
-                {
-                    Position = viewPoint
-                    Color = Color.White
-                }
-            ]
-            Camera = Camera(viewPoint, lookAt)
-        }
-    
-    renderScene scene (0, 0, 2048, 2048)
+      
+    let scenes =
+        [|
+            // for degree in [| 0.0 .. 1.0 .. 360.0 |] do
+            for degree in [| 0.0 |] do
+                let scene =
+                    {
+                        Name = $"scene_{degree}"
+                        
+                        Objects =
+                            molecule.Transform(Axis.Y, degree).Atoms
+                            |> Array.map (fun atom -> drawAtom atom)
+                            |> Array.toList
+                            
+                        Lights = [
+                            {
+                                Position = viewPoint
+                                Color = Color.White
+                            }
+                        ]
+                        
+                        Camera = Camera(viewPoint, lookAt)
+                    }
+                yield scene
+        |]
+   
+    let dirPath = "./"
+    renderScene scenes dirPath (0, 0, 4096, 4096)

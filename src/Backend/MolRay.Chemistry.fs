@@ -7,11 +7,22 @@ type Molecule =
         Atoms : Atom [] 
     }
     
+    member molecule.Transform (axis : Axis, degree : float) =
+        {
+            Atoms = molecule.Atoms |> Array.map (fun atom -> atom.Transform (axis, degree))
+        }
+    
 and Atom =
     {
         Type : AtomType
         Coordinates : Vector
     }
+    
+    member atom.Transform (axis : Axis, degree : float) =
+        {
+            Type = atom.Type
+            Coordinates = Vector.Transform (atom.Coordinates, axis, degree)
+        }
     
     member atom.GetNormalizedRadius () =
         atom.Type.GetRadius() / AtomType.H.GetRadius()
@@ -47,3 +58,5 @@ and AtomType =
         | N -> Color.Blue
         | O -> Color.Red
         | S -> Color.Yellow
+        
+     
