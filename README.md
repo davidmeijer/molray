@@ -11,4 +11,4 @@ dotnet run -p ./src/Cli/Cli.fsproj <path_to_sdf_file>
 ```bash
 dotnet run -p ./src/Cli/ ~/penicillin.sdf
 ```
-![penicllin](./penicillin.png)
+<img src="https://github.com/davidmeijer/molray/penicillin.png" width="100">
