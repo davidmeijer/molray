@@ -8,7 +8,6 @@ open MolRay.Types
 // Tracer
 // ===========================
 
-let SCENE_BACKGROUND_COLOR = Color.White
 let SCENE_DEFAULT_COLOR = Color.Black
 let MAX_RAYTRACING_DEPTH = 5
 
@@ -42,11 +41,11 @@ let TestRay (ray : Ray) (scene : Scene) =
 let rec TraceRay (ray : Ray) (scene : Scene) (depth : int) =
     match FindNearestIntersection ray scene with
     | None ->
-        SCENE_BACKGROUND_COLOR
+        { Color.White with Transparent = true }
     
     | Some intersection ->
         if intersection.Distance = infinity then
-            SCENE_BACKGROUND_COLOR
+            { Color.White with Transparent = true }
         else
             Shade intersection scene depth
             
@@ -162,7 +161,7 @@ let GetPoint (x : int) (y : int) (width : int) (height : int) (camera : Camera) 
     Vector.Normalize (camera.Forward + RecenterX x * camera.Right + RecenterY y * camera.Up)
     
 let Render (bitmap : Drawing.Bitmap) (scene : Scene) (x : int, y : int, width : int, height : int) =
-
+    
     let getProgressBar (maxTicks : int) =
         let options =
             ProgressBarOptions(
@@ -187,8 +186,13 @@ let Render (bitmap : Drawing.Bitmap) (scene : Scene) (x : int, y : int, width : 
                 Start = scene.Camera.Position
                 Direction = direction 
             }
-            let color = TraceRay ray scene 0
-            let color = Drawing.Color.FromArgb(clamp color.R, clamp color.G, clamp color.B)
+            
+            let color =
+                let color = TraceRay ray scene 0
+                if color.Transparent then
+                    Drawing.Color.Transparent
+                else
+                    Drawing.Color.FromArgb(clamp color.R, clamp color.G, clamp color.B)
             
             bitmap.SetPixel(x, y, color)
             

@@ -27,15 +27,15 @@ let drawMolecule (molecule : Molecule) =
         
     let viewPoint =
         {
-            X = 3.0
+            X = 0.0
             Y = 2.0
             Z = 30.0
         }
         
     let lookAt =
         {
-            X = -1.0
-            Y = 0.5
+            X = 0.0
+            Y = 0.0
             Z = 0.0
         }
       
@@ -48,7 +48,8 @@ let drawMolecule (molecule : Molecule) =
                         Name = $"scene_{degree}"
                         
                         Objects =
-                            molecule.Transform(Axis.Y, degree).Atoms
+                            let molecule = Molecule.Center molecule
+                            Molecule.Transform(molecule, Axis.Y, degree).Atoms
                             |> Array.map (fun atom -> drawAtom atom)
                             |> Array.toList
                             

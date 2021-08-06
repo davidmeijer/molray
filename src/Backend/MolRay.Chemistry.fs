@@ -2,14 +2,38 @@ module MolRay.Chemistry
 
 open MolRay.Types
 
+let getCentroid (coordinates : Vector []) =
+    coordinates
+    |> Array.fold (fun x y -> x + y) { X = 0.0; Y = 0.0; Z = 0.0 }
+    |> (/) (float coordinates.Length)
+     
+let centerOnTarget (target : Vector) (coordinates : Vector []) =
+    coordinates
+    |> Array.map (fun coords -> coords - target)
+
 type Molecule =
     {
         Atoms : Atom [] 
     }
     
-    member molecule.Transform (axis : Axis, degree : float) =
+    static member Transform (molecule : Molecule, axis : Axis, degree : float) =
         {
             Atoms = molecule.Atoms |> Array.map (fun atom -> atom.Transform (axis, degree))
+        }
+    
+    static member Center (molecule : Molecule) =
+        
+        let getCoordinates molecule = molecule.Atoms |> Array.map (fun atom -> atom.Coordinates)
+        let centroid = getCentroid (getCoordinates molecule)
+        
+        let centeredAtoms =
+            getCoordinates molecule
+            |> centerOnTarget centroid 
+            |> Array.zip molecule.Atoms
+            |> Array.map (fun (atom, newCoordinates) -> { atom with Coordinates = newCoordinates })
+        
+        {
+            Atoms = centeredAtoms
         }
     
 and Atom =

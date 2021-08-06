@@ -21,6 +21,14 @@ type Vector =
             Y = number * vector.Y
             Z = number * vector.Z
         }
+        
+    // Divide vector by number
+    static member (/) (number : float, vector : Vector) =
+        {
+            X = vector.X / number
+            Y = vector.Y / number
+            Z = vector.Z / number
+        }
     
     // Subtract vectors
     static member (-) (vector_a : Vector, vector_b : Vector) =
@@ -178,6 +186,7 @@ type Color =
         R : float
         B : float
         G : float
+        Transparent : bool
     }
     
     // Scale color
@@ -186,6 +195,7 @@ type Color =
             R = number * color.R
             G = number * color.G
             B = number * color.B
+            Transparent = color.Transparent
         }
     
     // Add colors
@@ -194,6 +204,11 @@ type Color =
             R = color_a.R + color_b.R
             G = color_a.G + color_b.G
             B = color_a.B + color_b.B
+            Transparent =
+                if color_a.Transparent && color_b.Transparent then
+                    true
+                else
+                    false
         }
     
     // Multiply colors
@@ -202,6 +217,11 @@ type Color =
             R = color_a.R * color_b.R
             G = color_a.G * color_b.G
             B = color_a.B * color_b.B
+            Transparent =
+                if color_a.Transparent && color_b.Transparent then
+                    true
+                else
+                    false
         }
         
     // ===========================
@@ -213,6 +233,7 @@ type Color =
             R = 1.0
             G = 1.0
             B = 1.0
+            Transparent = false
         }
         
     static member Grey =
@@ -220,6 +241,7 @@ type Color =
             R = 0.5
             G = 0.5
             B = 0.5
+            Transparent = false
         }
     
     static member Black =
@@ -227,6 +249,7 @@ type Color =
             R = 0.0
             G = 0.0
             B = 0.0
+            Transparent = false
         }
         
     static member Red =
@@ -234,6 +257,7 @@ type Color =
             R = 1.0
             G = 0.0
             B = 0.0
+            Transparent = false
         }
         
     static member Green =
@@ -241,6 +265,7 @@ type Color =
             R = 0.0
             G = 1.0
             B = 0.0
+            Transparent = false
         }
         
     static member Blue =
@@ -248,6 +273,7 @@ type Color =
             R = 0.0
             G = 0.0
             B = 1.0
+            Transparent = false
         }
         
     static member Yellow =
@@ -255,6 +281,7 @@ type Color =
             R = 1.0
             G = 1.0
             B = 0.0
+            Transparent = false
         }
         
 // ===========================
