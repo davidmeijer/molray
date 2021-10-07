@@ -14,3 +14,6 @@ dotnet run -p ./src/Cli/Cli.fsproj <path_to_sdf_file>
 dotnet run -p ./src/Cli/ ~/penicillin.sdf
 ```
 ![penicllin](./penicillin.png)
+
+# To do
+Next step is to implement the ball-and-stick representation. This requires cylinders to be implemented.
