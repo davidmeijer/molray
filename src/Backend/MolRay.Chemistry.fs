@@ -11,45 +11,28 @@ let centerOnTarget (target : Vector) (coordinates : Vector []) =
     coordinates
     |> Array.map (fun coords -> coords - target)
 
-type Molecule =
-    {
-        Atoms : Atom [] 
-    }
+type Molecule = { Atoms : Atom [] }
     
     static member Transform (molecule : Molecule, axis : Axis, degree : float) =
-        {
-            Atoms = molecule.Atoms |> Array.map (fun atom -> atom.Transform (axis, degree))
-        }
+        { Atoms = molecule.Atoms |> Array.map (fun atom -> atom.Transform (axis, degree)) }
     
     static member Center (molecule : Molecule) =
-        
         let getCoordinates molecule = molecule.Atoms |> Array.map (fun atom -> atom.Coordinates)
         let centroid = getCentroid (getCoordinates molecule)
-        
         let centeredAtoms =
             getCoordinates molecule
             |> centerOnTarget centroid 
             |> Array.zip molecule.Atoms
             |> Array.map (fun (atom, newCoordinates) -> { atom with Coordinates = newCoordinates })
-        
-        {
-            Atoms = centeredAtoms
-        }
+        { Atoms = centeredAtoms }
     
-and Atom =
-    {
-        Type : AtomType
-        Coordinates : Vector
-    }
+and Atom = { Type : AtomType; Coordinates : Vector}
     
     member atom.Transform (axis : Axis, degree : float) =
-        {
-            Type = atom.Type
-            Coordinates = Vector.Transform (atom.Coordinates, axis, degree)
-        }
+        { Type = atom.Type
+          Coordinates = Vector.Transform (atom.Coordinates, axis, degree) }
     
-    member atom.GetNormalizedRadius () =
-        atom.Type.GetRadius() / AtomType.H.GetRadius()
+    member atom.GetNormalizedRadius () = atom.Type.GetRadius() / AtomType.H.GetRadius()
     
     static member FromString (atomType : string) =
         match atomType with
@@ -60,12 +43,7 @@ and Atom =
         | "S" -> AtomType.S
         | _ -> failwith $"Unsupported atom type: {atomType}"
     
-and AtomType =
-    | H
-    | C
-    | N
-    | O
-    | S
+and AtomType = | H | C | N | O | S
 
     member atomType.GetRadius () =
         match atomType with

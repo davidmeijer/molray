@@ -11,20 +11,11 @@ let ReadSDF (path : string) : Molecule =
     let molecule = reader.Read(AtomContainer())
     let atoms = molecule.Atoms :> seq<_>
     
-    {
-        Atoms =
-            atoms
-            |> Seq.map (fun atom ->
-                {
-                    Type = Atom.FromString atom.Symbol
-                    Coordinates =
-                        let point = atom.Point3D.Value
-                        {
-                            X = point.X
-                            Y = point.Y
-                            Z = point.Z
-                        }
-                }
-            )
-            |> Seq.toArray
-    }
+    { Atoms =
+        atoms
+        |> Seq.map (fun atom ->
+            { Type = Atom.FromString atom.Symbol
+              Coordinates =
+              let point = atom.Point3D.Value
+              { X = point.X; Y = point.Y; Z = point.Z } } )
+        |> Seq.toArray }

@@ -1946,11 +1946,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/davidmeijer/molray/src/Backend/MolRay.fsproj",
+      "projectUniqueName": "/Users/davidmeijer/repos/molray/src/Backend/MolRay.fsproj",
       "projectName": "MolRay",
-      "projectPath": "/Users/davidmeijer/molray/src/Backend/MolRay.fsproj",
+      "projectPath": "/Users/davidmeijer/repos/molray/src/Backend/MolRay.fsproj",
       "packagesPath": "/Users/davidmeijer/.nuget/packages/",
-      "outputPath": "/Users/davidmeijer/molray/src/Backend/obj/",
+      "outputPath": "/Users/davidmeijer/repos/molray/src/Backend/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/Users/davidmeijer/.nuget/NuGet/NuGet.Config"
@@ -1973,7 +1973,6 @@
         "targetAlias": "net5.0",
         "dependencies": {
           "FSharp.Core": {
-            "include": "Runtime, Compile, Build, Native, Analyzers, BuildTransitive",
             "target": "Package",
             "version": "[5.0.0, )",
             "generatePathProperty": true
@@ -2019,8 +2018,16 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/5.0.300/RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/5.0.207/RuntimeIdentifierGraph.json"
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "The folder '/Users/davidmeijer/.nuget/packages/fable.browser.dom/lib' contains an invalid version."
+    }
+  ]
 }

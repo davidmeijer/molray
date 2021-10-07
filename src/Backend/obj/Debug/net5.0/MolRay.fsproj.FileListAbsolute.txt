@@ -8,3 +8,9 @@
 /Users/davidmeijer/molray/src/Backend/obj/Debug/net5.0/MolRay.dll
 /Users/davidmeijer/molray/src/Backend/obj/Debug/net5.0/MolRay.xml
 /Users/davidmeijer/molray/src/Backend/obj/Debug/net5.0/MolRay.pdb
+/Users/davidmeijer/repos/molray/src/Backend/obj/Debug/net5.0/MolRay.AssemblyInfoInputs.cache
+/Users/davidmeijer/repos/molray/src/Backend/obj/Debug/net5.0/MolRay.AssemblyInfo.fs
+/Users/davidmeijer/repos/molray/src/Backend/obj/Debug/net5.0/MolRay.fsproj.CoreCompileInputs.cache
+/Users/davidmeijer/repos/molray/src/Backend/obj/Debug/net5.0/MolRay.dll
+/Users/davidmeijer/repos/molray/src/Backend/obj/Debug/net5.0/MolRay.xml
+/Users/davidmeijer/repos/molray/src/Backend/obj/Debug/net5.0/MolRay.pdb

@@ -60,3 +60,8 @@
 /Users/davidmeijer/molray/src/Cli/bin/Debug/net5.0/runtimes/osx-x64/native/libpng16.16.dylib
 /Users/davidmeijer/molray/src/Cli/bin/Debug/net5.0/runtimes/osx-x64/native/libtiff.5.dylib
 /Users/davidmeijer/molray/src/Cli/bin/Debug/net5.0/ShellProgressBar.dll
+/Users/davidmeijer/repos/molray/src/Cli/obj/Debug/net5.0/Cli.AssemblyInfoInputs.cache
+/Users/davidmeijer/repos/molray/src/Cli/obj/Debug/net5.0/Cli.AssemblyInfo.fs
+/Users/davidmeijer/repos/molray/src/Cli/obj/Debug/net5.0/Cli.fsproj.CoreCompileInputs.cache
+/Users/davidmeijer/repos/molray/src/Cli/obj/Debug/net5.0/Cli.dll
+/Users/davidmeijer/repos/molray/src/Cli/obj/Debug/net5.0/Cli.pdb

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "TQiwgc/TSKPv18EKpG23Mb8Wsy8qNrU4970OtRgI9Xpps11v3lH7j+JgHBL2swW1SgZDD5TR1NlzY9738pCLxQ==",
+  "dgSpecHash": "3BiL0Dt/FI30gUwVvCAlkuiNYdOT0SgARlVd5xLad9RKxUKSFIffkZRMYzLrKv+7Fmr6ze4+j4X+BKpPENijIQ==",
   "success": true,
-  "projectFilePath": "/Users/davidmeijer/molray/src/Backend/MolRay.fsproj",
+  "projectFilePath": "/Users/davidmeijer/repos/molray/src/Backend/MolRay.fsproj",
   "expectedPackageFiles": [
     "/Users/davidmeijer/.nuget/packages/fable.browser.blob/1.1.0/fable.browser.blob.1.1.0.nupkg.sha512",
     "/Users/davidmeijer/.nuget/packages/fable.browser.dom/1.2.0/fable.browser.dom.1.2.0.nupkg.sha512",
@@ -37,5 +37,12 @@
     "/Users/davidmeijer/.nuget/packages/system.threading/4.3.0/system.threading.4.3.0.nupkg.sha512",
     "/Users/davidmeijer/.nuget/packages/system.threading.tasks/4.3.0/system.threading.tasks.4.3.0.nupkg.sha512"
   ],
-  "logs": []
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "The folder '/Users/davidmeijer/.nuget/packages/fable.browser.dom/lib' contains an invalid version."
+    }
+  ]
 }
