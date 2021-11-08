@@ -2019,19 +2019,5 @@
         "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/5.0.207/RuntimeIdentifierGraph.json"
       }
     }
-  },
-  "logs": [
-    {
-      "code": "Undefined",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "The folder '/Users/davidmeijer/.nuget/packages/fable.browser.event/lib' contains an invalid version."
-    },
-    {
-      "code": "Undefined",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "The folder '/Users/davidmeijer/.nuget/packages/fable.core/lib' contains an invalid version."
-    }
-  ]
+  }
 }

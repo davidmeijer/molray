@@ -12,7 +12,7 @@ let centerOnTarget (target : Vector) (coordinates : Vector []) =
     |> Array.map (fun coords -> coords - target)
 
 type Molecule = { Atoms : Atom [] }
-    
+    with
     static member Transform (molecule : Molecule, axis : Axis, degree : float) =
         { Atoms = molecule.Atoms |> Array.map (fun atom -> atom.Transform (axis, degree)) }
     
@@ -27,7 +27,7 @@ type Molecule = { Atoms : Atom [] }
         { Atoms = centeredAtoms }
     
 and Atom = { Type : AtomType; Coordinates : Vector}
-    
+    with
     member atom.Transform (axis : Axis, degree : float) =
         { Type = atom.Type
           Coordinates = Vector.Transform (atom.Coordinates, axis, degree) }
@@ -44,7 +44,7 @@ and Atom = { Type : AtomType; Coordinates : Vector}
         | _ -> failwith $"Unsupported atom type: {atomType}"
     
 and AtomType = | H | C | N | O | S
-
+    with
     member atomType.GetRadius () =
         match atomType with
         | H -> 25.0
