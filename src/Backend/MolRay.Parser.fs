@@ -7,7 +7,7 @@ open MolRay.Chemistry
 
 let ReadSDF (path : string) : Molecule =
     use stream = new StreamReader(path)
-    let reader =  new MDLV2000Reader(stream)
+    let reader = new MDLV2000Reader(stream)
     let molecule = reader.Read(AtomContainer())
     let atoms = molecule.Atoms :> seq<_>
     
