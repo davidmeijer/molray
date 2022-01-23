@@ -1,19 +1,20 @@
-# Description
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
+---
+
+### Description
 Small console app for creating simple space-filling depictions of molecules.
 
 This app is an extension of the raytracer in the Fable REPL: https://fable.io/repl/
 
-# Usage
+### Usage
 Directly call the command line interface project with path to SDF file as only argument, like:
 ```bash
 dotnet run -p ./src/Cli/Cli.fsproj <path_to_sdf_file>
 ```
 
-# Example
+### Example
 ```bash
 dotnet run -p ./src/Cli/ ~/penicillin.sdf
 ```
 ![penicllin](./penicillin.png)
-
-# To do
-Next step is to implement the ball-and-stick representation. This requires cylinders to be implemented.
